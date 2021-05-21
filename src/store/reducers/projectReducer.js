@@ -9,12 +9,12 @@ const initState = {
 function projectReducer(state = initState, action) {
   switch (action.type) {
     case 'CREATE_PROJECT':
-      console.log(action.payload)
-      const id = Data.now()
-      newProject = { ...action.payload, id }
-      return { projects: [...state, action.payload] }
+      const id = Date.now()
+      const newProject = { ...action.payload, id }
+      return { projects: [...state, newProject] }
+    default:
+      return state
   }
-  return state
 }
 
 export default projectReducer

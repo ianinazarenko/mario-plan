@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Notifications from '../components/dashboard/Notifications'
-import ProjectList from '../components/dashboard/ProjectList'
+import Notifications from 'components/dashboard/Notifications'
+import ProjectList from 'components/dashboard/ProjectList'
 import { connect } from 'react-redux'
 
 class Dashboard extends Component {
