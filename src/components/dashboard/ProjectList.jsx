@@ -1,12 +1,16 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import ProjectSummary from './ProjectSummary'
 
 export default function ProjectList() {
+  const projects = useSelector((state) => state.projects.projects)
+
   return (
     <div className='project-list section'>
-      <ProjectSummary />
-      <ProjectSummary />
-      <ProjectSummary />
+      {projects &&
+        projects.map((project) => {
+          return <ProjectSummary key={project.id} project={project} />
+        })}
     </div>
   )
 }

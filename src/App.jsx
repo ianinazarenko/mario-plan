@@ -5,8 +5,10 @@ import Dashboard from './pages/Dashboard'
 import ProjectDetails from './pages/ProjectDetails'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
+import store from './store/store'
 
 function App() {
+  console.log(store.getState())
   return (
     <BrowserRouter>
       <Navbar />
