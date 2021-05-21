@@ -1,10 +1,39 @@
+html {
+  min-height: 100vh;
+}
+
 body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
   font-family: sans-serif;
   background: url('images/mario-bg.png') no-repeat;
   background-size: 100%;
   background-position: bottom;
   background-color: #95e8f3;
+}
+
+form {
+  padding: 1.5rem;
+  margin: 4rem 0 5rem 0;
+  max-width: 40rem;
+}
+
+form button,
+form h5 {
+  margin: 20px 0;
+}
+
+input[type='text']:not(.browser-default):focus:not([readonly]),
+input[type='email']:not(.browser-default):focus:not([readonly]),
+input[type='password']:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-color: #ec407a;
+  box-shadow: none;
+}
+
+input[type='text']:not(.browser-default):focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label,
+input[type='email']:not(.browser-default):focus:not([readonly]) + label,
+input[type='password']:not(.browser-default):focus:not([readonly]) + label {
+  color: #ec407a !important;
 }
