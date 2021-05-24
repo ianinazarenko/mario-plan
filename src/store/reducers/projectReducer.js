@@ -9,9 +9,12 @@ const initState = {
 function projectReducer(state = initState, action) {
   switch (action.type) {
     case 'CREATE_PROJECT':
-      const id = Date.now()
-      const newProject = { ...action.payload, id }
-      return { projects: [...state, newProject] }
+      // const id = Date.now()
+      // const newProject = { ...action.payload, id }
+      // return { projects: [...state, newProject] }
+      console.log('create project', action.payload)
+    case 'CREATE_PROJECT_ERROR':
+      console.log('create project error', action.payload)
     default:
       return state
   }
