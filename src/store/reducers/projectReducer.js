@@ -13,8 +13,10 @@ function projectReducer(state = initState, action) {
       // const newProject = { ...action.payload, id }
       // return { projects: [...state, newProject] }
       console.log('create project', action.payload)
+      break
     case 'CREATE_PROJECT_ERROR':
       console.log('create project error', action.payload)
+      break
     default:
       return state
   }

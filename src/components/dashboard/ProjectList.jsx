@@ -1,16 +1,21 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { Component } from 'react'
 import ProjectSummary from './ProjectSummary'
+import { Link } from 'react-router-dom'
 
-export default function ProjectList() {
-  const projects = useSelector((state) => state.projects.projects)
-
-  return (
-    <div className='project-list section'>
-      {projects &&
-        projects.map((project) => {
-          return <ProjectSummary key={project.id} project={project} />
-        })}
-    </div>
-  )
+export default class ProjectList extends Component {
+  render() {
+    return (
+      <div className='project-list section'>
+        {this.props.projects &&
+          this.props.projects.map((project) => {
+            return (
+              <Link to={'/project-' + project.id}>
+                <ProjectSummary key={project.id} project={project} />
+              </Link>
+            )
+          })}
+      </div>
+    )
+  }
 }

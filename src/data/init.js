@@ -2,7 +2,7 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
 
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: 'AIzaSyAWUal0I4wPIa9PSgvYbtYIuoYji21JpV0',
   authDomain: 'mario-plan-972a9.firebaseapp.com',
   projectId: 'mario-plan-972a9',
@@ -10,6 +10,7 @@ var firebaseConfig = {
   messagingSenderId: '706516729014',
   appId: '1:706516729014:web:5fd06c4eab011978f8fa17',
 }
+
 // Initialize Firebase
 export default firebase.initializeApp(firebaseConfig)
-// export default firebase.firestore()
+export const projectFirestore = firebase.firestore()
