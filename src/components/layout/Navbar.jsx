@@ -6,13 +6,15 @@ import { connect } from 'react-redux'
 
 class Navbar extends Component {
   render() {
+    const { isLoaded, isLogged } = this.props
+    const links = isLogged ? <SignedInLinks /> : <SignedOutLinks />
     return (
       <nav className='nav-wrapper grey darken-3'>
         <div className='container'>
           <Link to='/' className='brand-logo'>
             MarioPlan
           </Link>
-          {this.props.isLogged ? <SignedInLinks /> : <SignedOutLinks />}
+          {isLoaded ? links : 'Loading...'}
         </div>
       </nav>
     )
@@ -20,9 +22,9 @@ class Navbar extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state.firebase.auth.isEmpty)
   return {
     isLogged: !state.firebase.auth.isEmpty,
+    isLoaded: state.firebase.auth.isLoaded,
   }
 }
 

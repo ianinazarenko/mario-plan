@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Redirect } from 'react-router'
 
 export class SignUp extends Component {
   constructor(props) {
@@ -26,6 +28,8 @@ export class SignUp extends Component {
   }
 
   render() {
+    if (this.props.isLogged) return <Redirect to='/' />
+
     return (
       <div className='container'>
         <form onSubmit={this.onSubmit} className='white'>
@@ -57,4 +61,10 @@ export class SignUp extends Component {
   }
 }
 
-export default SignUp
+function mapStateToProps(state) {
+  return {
+    isLogged: !state.firebase.auth.isEmpty,
+  }
+}
+
+export default connect(mapStateToProps)(SignUp)

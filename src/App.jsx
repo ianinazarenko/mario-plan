@@ -1,3 +1,5 @@
+import NotFound from 'pages/NotFound'
+import RouteGuard from 'pages/RouteGuard'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
 import CreateProject from './pages/CreateProject'
@@ -11,20 +13,21 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Switch>
-        <Route exact path={'/' || '/dashboard'}>
+        <RouteGuard exact path={'/' || '/dashboard'}>
           <Dashboard />
-        </Route>
-        <Route path='/project-:id'>
+        </RouteGuard>
+        <RouteGuard path='/project-:id'>
           <ProjectDetails />
-        </Route>
-        <Route path='/signin'>
-          <SignIn />
-        </Route>
+        </RouteGuard>
+        <Route path='/signin' component={SignIn} />
         <Route path='/signup'>
           <SignUp />
         </Route>
-        <Route path='/create-project'>
+        <RouteGuard path='/create-project'>
           <CreateProject />
+        </RouteGuard>
+        <Route path='*'>
+          <NotFound />
         </Route>
       </Switch>
     </BrowserRouter>

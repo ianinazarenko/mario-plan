@@ -26,6 +26,10 @@ class SignIn extends Component {
     })
   }
 
+  componentDidUpdate() {
+    if (this.props.isLogged) this.props.history.push('/')
+  }
+
   render() {
     return (
       <div className='container'>
@@ -56,6 +60,7 @@ class SignIn extends Component {
 function mapStateToProps(state) {
   return {
     authError: state.auth.authError,
+    isLogged: !state.firebase.auth.isEmpty,
   }
 }
 
