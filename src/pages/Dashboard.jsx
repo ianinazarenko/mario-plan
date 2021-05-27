@@ -7,7 +7,6 @@ import { compose } from 'redux'
 
 class Dashboard extends Component {
   render() {
-    console.log(this.props.projects)
     return (
       <div className='dashboard container'>
         <div className='row'>
@@ -24,9 +23,9 @@ class Dashboard extends Component {
 }
 
 const mapSateToProps = (state) => {
-  if (state.firebase.ordered) {
+  if (state.firestore.ordered) {
     return {
-      projects: state.firebase.ordered.projects,
+      projects: state.firestore.ordered.projects,
     }
   }
   return {

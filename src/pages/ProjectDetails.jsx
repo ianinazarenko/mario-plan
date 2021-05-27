@@ -12,7 +12,7 @@ function ProjectDetails() {
   })
 
   const project = useSelector(
-    ({ firebase: { data } }) => data.projects && data.projects[id]
+    ({ firestore: { data } }) => data.projects && data.projects[id]
   )
 
   console.log('render')

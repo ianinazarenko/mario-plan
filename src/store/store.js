@@ -4,7 +4,7 @@ import projectReducer from './reducers/projectReducer'
 import thunk from 'redux-thunk'
 import { createFirestoreInstance, firestoreReducer } from 'redux-firestore'
 import { getFirestore, reduxFirestore } from 'redux-firestore'
-import { getFirebase } from 'react-redux-firebase'
+import { getFirebase, firebaseReducer } from 'react-redux-firebase'
 import firebase from 'data/init'
 
 // react-redux-firebase config
@@ -13,7 +13,8 @@ const rrfConfig = {}
 const rootReducer = combineReducers({
   auth: authReducer,
   projects: projectReducer,
-  firebase: firestoreReducer,
+  firestore: firestoreReducer,
+  firebase: firebaseReducer,
 })
 
 const store = createStore(

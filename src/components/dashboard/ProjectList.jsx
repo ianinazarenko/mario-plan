@@ -10,8 +10,8 @@ export default class ProjectList extends Component {
         {this.props.projects &&
           this.props.projects.map((project) => {
             return (
-              <Link to={'/project-' + project.id}>
-                <ProjectSummary key={project.id} project={project} />
+              <Link to={'/project-' + project.id} key={project.id}>
+                <ProjectSummary project={project} />
               </Link>
             )
           })}
