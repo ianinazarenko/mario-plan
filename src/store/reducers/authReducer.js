@@ -12,6 +12,11 @@ function authReducer(
     console.log('login error')
     return { ...state, authError: 'Login failed' }
   }
+  if (action.type === 'LOGOUT_SUCCESS') {
+    console.log('logout success')
+    return state
+  }
+
   return state
 }
 

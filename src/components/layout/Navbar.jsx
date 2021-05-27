@@ -12,8 +12,7 @@ class Navbar extends Component {
           <Link to='/' className='brand-logo'>
             MarioPlan
           </Link>
-          <SignedInLinks />
-          <SignedOutLinks />
+          {this.props.isLogged ? <SignedInLinks /> : <SignedOutLinks />}
         </div>
       </nav>
     )
@@ -21,8 +20,10 @@ class Navbar extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state)
-  return {}
+  console.log(state.firebase.auth.isEmpty)
+  return {
+    isLogged: !state.firebase.auth.isEmpty,
+  }
 }
 
 export default connect(mapStateToProps)(Navbar)
