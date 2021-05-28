@@ -16,6 +16,14 @@ function authReducer(
     console.log('logout success')
     return state
   }
+  if (action.type === 'SIGNUP_SUCCESS') {
+    console.log('signup success')
+    return { ...state, authError: null }
+  }
+  if (action.type === 'SIGNUP_ERROR') {
+    console.log('signup error')
+    return { ...state, authError: action.error.message }
+  }
 
   return state
 }

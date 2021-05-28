@@ -8,7 +8,10 @@ import { getFirebase, firebaseReducer } from 'react-redux-firebase'
 import firebase from 'data/init'
 
 // react-redux-firebase config
-const rrfConfig = {}
+const rrfConfig = {
+  userProfile: 'users',
+  useFirestoreForProfile: true,
+}
 
 const rootReducer = combineReducers({
   auth: authReducer,

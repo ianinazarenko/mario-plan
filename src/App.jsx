@@ -16,17 +16,15 @@ function App() {
         <RouteGuard exact path={'/' || '/dashboard'}>
           <Dashboard />
         </RouteGuard>
-        <RouteGuard path='/project-:id'>
+        <RouteGuard path="/project-:id">
           <ProjectDetails />
         </RouteGuard>
-        <Route path='/signin' component={SignIn} />
-        <Route path='/signup'>
+        <Route path="/signin" component={SignIn} />
+        <Route path="/signup">
           <SignUp />
         </Route>
-        <RouteGuard path='/create-project'>
-          <CreateProject />
-        </RouteGuard>
-        <Route path='*'>
+        <RouteGuard path="/create-project" component={CreateProject} />
+        <Route path="*">
           <NotFound />
         </Route>
       </Switch>

@@ -19,4 +19,30 @@ function signOut() {
   }
 }
 
-export { signIn, signOut }
+function signUp(newUser) {
+  const { email, password, firstName, lastName } = newUser
+  const initials = (firstName[0] + lastName[0]).toUpperCase()
+
+  return async (dispatch, getState, { getFirebase, getFirestore }) => {
+    const firebase = getFirebase()
+    const firestore = getFirestore()
+
+    try {
+      const response = await firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password)
+
+      await firestore.collection('users').doc(response.user.uid).set({
+        firstName,
+        lastName,
+        initials,
+      })
+
+      dispatch({ type: 'SIGNUP_SUCCESS' })
+    } catch (error) {
+      dispatch({ type: 'SIGNUP_ERROR', error })
+    }
+  }
+}
+
+export { signIn, signOut, signUp }
